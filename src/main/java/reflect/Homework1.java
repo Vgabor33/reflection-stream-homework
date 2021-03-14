@@ -42,7 +42,7 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      * Prints the declared methods of java.lang.String with at least one boolean parameter, sorted by name.
      */
     public void streamPipeline5() {
-        // TODO
+        Arrays.stream(java.lang.String.class.getMethods()).filter(n -> Arrays.stream(n.getParameterTypes()).anyMatch(s -> s== boolean.class)).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
     }
 
     /**
