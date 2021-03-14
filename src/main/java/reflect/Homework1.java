@@ -56,8 +56,8 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      * Returns the longest name of the declared methods of java.lang.String.
      */
     public String streamPipeline7() {
-        // TODO
-        return null;
+    
+        return Arrays.stream(java.lang.String.class.getMethods()).map(m -> m.getName()).distinct().max(Comparator.comparing(n -> n.length())).get();
     }
 
     /**
