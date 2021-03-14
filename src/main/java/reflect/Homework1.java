@@ -80,8 +80,8 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      * Returns the maximum number of parameters accepted by the declared methods of java.lang.String.
      */
     public int streamPipeline10() {
-        // TODO
-        return 0;
+        
+        return Arrays.stream(java.lang.String.class.getMethods()).mapToInt(n -> n.getParameterCount()).max().getAsInt();
     }
 
     /**
