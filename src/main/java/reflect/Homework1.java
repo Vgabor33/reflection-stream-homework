@@ -72,8 +72,8 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      * Returns summary statistics about the number of parameters for the declared methods of java.lang.String.
      */
     public IntSummaryStatistics streamPipeline9() {
-        // TODO
-        return null;
+        
+        return Arrays.stream(java.lang.String.class.getMethods()).mapToInt(n -> n.getParameterCount()).summaryStatistics();
     }
 
     /**
