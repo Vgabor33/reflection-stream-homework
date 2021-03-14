@@ -34,7 +34,8 @@ public class Homework1 {
      * Prints all distinct return types of the declared methods of java.lang.String sorted alphabetically.
      */
     public void streamPipeline4() {
-        // TODO
+Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m -> m.getReturnType().getName())).map(m -> m.getReturnType().getName()).distinct().forEach(System.out::println);
+
     }
 
     /**
