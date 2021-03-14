@@ -64,8 +64,8 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      *  Returns the longest one from the names of the public declared methods of java.lang.String.
      */
     public String streamPipeline8() {
-        // TODO
-        return null;
+        
+        return Arrays.stream(java.lang.String.class.getMethods()).filter(n -> n.getModifiers()==1).map(m -> m.getName()).distinct().max(Comparator.comparing(n -> n.length())).get();
     }
 
     /**
