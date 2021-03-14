@@ -96,7 +96,7 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      * Prints all distinct parameter types of the declared methods of java.lang.String sorted alphabetically.
      */
     public void streamPipeline12() {
-        // TODO
+      Arrays.stream(java.lang.String.class.getMethods()).flatMap(n -> Arrays.stream(n.getParameterTypes())).distinct().sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
     }
 
 }
