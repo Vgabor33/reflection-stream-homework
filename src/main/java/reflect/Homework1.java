@@ -26,7 +26,8 @@ public class Homework1 {
      * Prints the declared methods of java.lang.String with two or more parameters whose parameters are all of the same type, sorted by name.
      */
     public void streamPipeline3() {
-        // TODO
+        Arrays.stream(java.lang.String.class.getMethods()).filter(n -> n.getParameterCount()>1 && Arrays.stream(n.getParameterTypes()).allMatch(s -> s==Arrays.stream(n.getParameterTypes()).findFirst().get())).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
+
     }
 
     /**
