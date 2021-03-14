@@ -88,8 +88,8 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      * Returns the declared method of java.lang.String with the most number of parameters.
      */
     public Method streamPipeline11() {
-        // TODO
-        return null;
+        
+        return Arrays.stream(java.lang.String.class.getMethods()).max(Comparator.comparingInt(n -> n.getParameterCount())).get();
     }
 
     /**
