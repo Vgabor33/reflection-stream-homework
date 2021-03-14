@@ -49,7 +49,7 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      * Prints the declared methods of java.lang.String whose parameters are all of type int, sorted by name.
      */
     public void streamPipeline6() {
-        // TODO
+        Arrays.stream(java.lang.String.class.getMethods()).filter(n -> Arrays.stream(n.getParameterTypes()).allMatch(s -> s== int.class) && n.getParameterCount() !=0).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
     }
 
     /**
