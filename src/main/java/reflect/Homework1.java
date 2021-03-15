@@ -12,21 +12,21 @@ public class Homework1 {
      * Prints the declared methods of java.lang.String sorted by name.
      */
     public void streamPipeline1() {
-        Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
+        Arrays.stream(java.lang.String.class.getDeclaredMethods()).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
     }
 
     /**
      *  Prints all distinct names of the declared methods of java.lang.String sorted alphabetically.
      */
     public void streamPipeline2() {
-        Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m -> m.getName())).map(m -> m.getName()).distinct().forEach(System.out::println);
+        Arrays.stream(java.lang.String.class.getDeclaredMethods()).sorted(Comparator.comparing(m -> m.getName())).map(m -> m.getName()).distinct().forEach(System.out::println);
     }
 
     /**
      * Prints the declared methods of java.lang.String with two or more parameters whose parameters are all of the same type, sorted by name.
      */
     public void streamPipeline3() {
-        Arrays.stream(java.lang.String.class.getMethods()).filter(n -> n.getParameterCount()>1 && Arrays.stream(n.getParameterTypes()).allMatch(s -> s==Arrays.stream(n.getParameterTypes()).findFirst().get())).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
+        Arrays.stream(java.lang.String.class.getDeclaredMethods()).filter(n -> n.getParameterCount()>1 && Arrays.stream(n.getParameterTypes()).allMatch(s -> s==Arrays.stream(n.getParameterTypes()).findFirst().get())).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
 
     }
 
@@ -34,7 +34,7 @@ public class Homework1 {
      * Prints all distinct return types of the declared methods of java.lang.String sorted alphabetically.
      */
     public void streamPipeline4() {
-Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m -> m.getReturnType().getName())).map(m -> m.getReturnType().getName()).distinct().forEach(System.out::println);
+Arrays.stream(java.lang.String.class.getDeclaredMethods()).sorted(Comparator.comparing(m -> m.getReturnType().getName())).map(m -> m.getReturnType().getName()).distinct().forEach(System.out::println);
 
     }
 
@@ -42,14 +42,14 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      * Prints the declared methods of java.lang.String with at least one boolean parameter, sorted by name.
      */
     public void streamPipeline5() {
-        Arrays.stream(java.lang.String.class.getMethods()).filter(n -> Arrays.stream(n.getParameterTypes()).anyMatch(s -> s== boolean.class)).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
+        Arrays.stream(java.lang.String.class.getDeclaredMethods()).filter(n -> Arrays.stream(n.getParameterTypes()).anyMatch(s -> s== boolean.class)).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
     }
 
     /**
      * Prints the declared methods of java.lang.String whose parameters are all of type int, sorted by name.
      */
     public void streamPipeline6() {
-        Arrays.stream(java.lang.String.class.getMethods()).filter(n -> Arrays.stream(n.getParameterTypes()).allMatch(s -> s== int.class) && n.getParameterCount() !=0).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
+        Arrays.stream(java.lang.String.class.getDeclaredMethods()).filter(n -> Arrays.stream(n.getParameterTypes()).allMatch(s -> s== int.class) && n.getParameterCount() !=0).sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
     }
 
     /**
@@ -57,7 +57,7 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      */
     public String streamPipeline7() {
     
-        return Arrays.stream(java.lang.String.class.getMethods()).map(m -> m.getName()).distinct().max(Comparator.comparing(n -> n.length())).get();
+        return Arrays.stream(java.lang.String.class.getDeclaredMethods()).map(m -> m.getName()).distinct().max(Comparator.comparing(n -> n.length())).get();
     }
 
     /**
@@ -65,7 +65,7 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      */
     public String streamPipeline8() {
         
-        return Arrays.stream(java.lang.String.class.getMethods()).filter(n -> n.getModifiers()==1).map(m -> m.getName()).distinct().max(Comparator.comparing(n -> n.length())).get();
+        return Arrays.stream(java.lang.String.class.getDeclaredMethods()).filter(n -> n.getModifiers()==1).map(m -> m.getName()).distinct().max(Comparator.comparing(n -> n.length())).get();
     }
 
     /**
@@ -73,7 +73,7 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      */
     public IntSummaryStatistics streamPipeline9() {
         
-        return Arrays.stream(java.lang.String.class.getMethods()).mapToInt(n -> n.getParameterCount()).summaryStatistics();
+        return Arrays.stream(java.lang.String.class.getDeclaredMethods()).mapToInt(n -> n.getParameterCount()).summaryStatistics();
     }
 
     /**
@@ -81,7 +81,7 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      */
     public int streamPipeline10() {
         
-        return Arrays.stream(java.lang.String.class.getMethods()).mapToInt(n -> n.getParameterCount()).max().getAsInt();
+        return Arrays.stream(java.lang.String.class.getDeclaredMethods()).mapToInt(n -> n.getParameterCount()).max().getAsInt();
     }
 
     /**
@@ -89,14 +89,14 @@ Arrays.stream(java.lang.String.class.getMethods()).sorted(Comparator.comparing(m
      */
     public Method streamPipeline11() {
         
-        return Arrays.stream(java.lang.String.class.getMethods()).max(Comparator.comparingInt(n -> n.getParameterCount())).get();
+        return Arrays.stream(java.lang.String.class.getDeclaredMethods()).max(Comparator.comparingInt(n -> n.getParameterCount())).get();
     }
 
     /**
      * Prints all distinct parameter types of the declared methods of java.lang.String sorted alphabetically.
      */
     public void streamPipeline12() {
-      Arrays.stream(java.lang.String.class.getMethods()).flatMap(n -> Arrays.stream(n.getParameterTypes())).distinct().sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
+      Arrays.stream(java.lang.String.class.getDeclaredMethods()).flatMap(n -> Arrays.stream(n.getParameterTypes())).distinct().sorted(Comparator.comparing(m -> m.getName())).forEach(System.out::println);
     }
 
 }
